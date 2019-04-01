@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Edit/Create Car</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />  
+</head>
+<body>
+
+    <div class="container">
+        
+        <a class="mt-5 btn btn-success btn-sm" href="../list" >  <--return  </a>
+        <div class="card mt-1 mb-5">
+               
+        <div class="card-header">
+                <h4>Edit  car's  details </h1> 
+        </div>
+        <div class="card-body">
+           <form method="post" id="form-car" name="form-car"  enctype="multipart/form-data" >   
+               <input type="hidden" name="id" id="id" />
+            <div class="form row">
+                <div class="form-group col-md-3">
+                        <label>Model Id *</label>
+                        <input type="number" class="form-control required" id="model_id" name="model_id">
+                </div>
+                <div class="form-group col-md-3">
+                        <label>Make Id *</label>
+                        <input type="text" class="form-control required" id="model_make_id"  name="model_make_id">
+                </div>
+                <div class="form-group col-md-3">
+                        <label>Model Name * </label>
+                        <input type="text" class="form-control required" id="model_name"  name="model_name">
+                </div>
+
+                <div class="form-group col-md-3">
+                        <label>Trim</label>
+                        <input type="text" class="form-control" id="model_trim" name="model_trim">
+                </div>
+
+                <div class="form-group col-md-3">
+                        <label>Year</label>
+                        <input type="number" class="form-control"  name="model_year" id="model_year">
+                </div>
+
+
+                <div class="form-group col-md-3">
+                        <label>Body</label>
+                        <input type="text" class="form-control" id="model_body"  name="model_body">
+                </div>
+
+                <div class="form-group col-md-3">
+                        <label>Engine position</label>
+                        <input type="text" class="form-control" id="model_engine_position" name="model_engine_position">
+                </div>
+
+               
+                <div class="form-group col-md-3">
+                        <label>Engine type</label>
+                        <input type="text" class="form-control" id="model_engine_type" name="model_engine_type">
+                </div>
+
+                <div class="form-group col-md-3">
+                        <label>Engine compression</label>
+                        <input type="text" class="form-control" id="model_engine_compression"  name="model_engine_compression">
+                </div>
+
+                <div class="form-group col-md-3">
+                        <label>Engine fuel</label>
+                        <input type="text" class="form-control" id="model_engine_fuel"  name="model_engine_fuel">
+                </div>
+
+                <div class="form-group col-md-3">
+                        <label>Make country</label>
+                        <input type="text" class="form-control" id="make_country"  name="make_country">
+                </div>
+
+                <div class="form-group col-md-3">
+                        <label>weight_kg</label>
+                        <input type="number" class="form-control" id="model_weight_kg" name="model_weight_kg">
+                </div>
+
+                <div class="form-group col-md-3">
+                        <label>transmission_type</label>
+                        <input type="text" class="form-control" id="model_transmission_type" name="model_transmission_type">
+                </div>
+
+                <div class="form-group col-md-3">
+                        <label>price(fill empty for random)</label>
+                        <input type="number" class="form-control" id="price" name="price">
+                </div>
+
+
+                <div class="form-group col-md-3">
+                        <label>image photo file</label>
+                         <input type="file" name="image"/>
+                </div>
+
+                <div class="col-md-12">
+                        
+                        <button type="submit" class="btn btn-lg btn-info" id="btn-submit">Submit</button>
+   
+                </div>
+               
+
+
+            </div>
+        </div>
+    </form>  
+        </div>
+
+    </div>
+  
+<script src="../../js/main.js"></script>
+<script>
+    let url = window.location.pathname;
+    let id = url.substring(url.lastIndexOf('/') + 1);
+    document.getElementById('id').value=id;
+   
+    if(id) { // edit car
+         getCar(id)
+            .catch(e=>console.log(e)) 
+            .then(data=>RenderHtmlForm( data.message)); 
+    }
+   
+
+    
+
+     
+    
+
+</script>
+</body>
+</html>

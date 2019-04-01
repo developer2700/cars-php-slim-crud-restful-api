@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />  
+</head>
+
+<style>
+    .image-thumbnail {width: 100px;}
+</style>
+<body>
+
+    <div class="container">
+        <a class="btn btn-success mt-5 " href="create/" >Add New Car</a>
+        <a class="btn btn-success mt-5 " href="../" >Home Page</a>
+        <a class="btn btn-warning mt-5 " target="_blank" href="../api/v1/cars/sync" >sync with carQuery Api</a>
+
+        <div class="card mt-1 mb-5">
+               
+        <div class="card-header"> <h4>List all cars </h1></div>
+        <div class="card-body">
+                <span id="search-result-tip"></span>
+            <div class="table-responsive ">
+                <table id="table-list" class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">image</th>
+                                <th scope="col">Model_Id</th>
+                                <th scope="col">ModelName</th>
+                                <th scope="col">Make</th>
+                                <th scope="col">Trim</th>
+                                <th scope="col">Year</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">#</th>
+                                <td>image</td>
+                                <td>ModelId</td>
+                                <td>Make</td>
+                                <td>Trim</td>
+                                <td>Year</td>
+                                <td>
+                                    <a class=" btn btn-info btn-sm" href="edit" >Edit</a>
+                                    <a data-id="1"  class="btn-delete btn btn-danger btn-sm" href="delete" >delete</a>
+                                </td>
+                            </tr>
+                                    
+                        </tbody>
+                </table>
+
+                <div id="pagination"></div>
+            </div>
+          </div>
+    </div>
+  
+<script src="../js/main.js"></script>
+<script>
+   getCars()
+  .catch(e=>console.log(e)) 
+  .then(data=>{ 
+        RenderPagination(data.message)
+        return RenderHtmlTable( data.message.items)
+    }); 
+
+
+
+</script>
+</body>
+</html>

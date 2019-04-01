@@ -1,0 +1,33 @@
+{
+    "name": "car-system-rest-api-slim-php",
+    "description": "car system with REST API Slim PHP Framework.",
+    "keywords": ["php", "slim-micro-framework", "rest-api", "mysql", "slim3", "slim", "rest", "api"],
+    "homepage": "https://github.com/developer2700/car-system-rest-api-slim-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohammad Ghamari",
+            "email": "mohammad2700@gmail.com",
+            "homepage": "https://github.com/developer2700"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.1",
+        "respect/validation": "^1.1",
+        "palanik/corsslim": "dev-slim3",
+        "vlucas/phpdotenv": "^2.4",
+        "guzzlehttp/guzzle": "^6.3",
+        "intervention/image": "^2.4"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.10.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "scripts": {
+        "start": "php -S 0.0.0.0:8080  -t public_html public_html/index.php"
+    }
+}
